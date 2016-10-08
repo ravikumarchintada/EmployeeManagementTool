@@ -1,10 +1,31 @@
-package com.ravi.pfmt.spring.form.model;
+package com.pfmt.spring.model;
 
-public class Signup {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+@Entity
+@Table (name="TEAM_MEMBERS")
+public class SignupEntity {
+	
+	@Id
+    @GeneratedValue
+    private Integer teamMateId;
+	
+	@NotEmpty
 	private String userName;
+	private Long dob;
 	private String password;
 	private String email;
 	private String mobileNo;
+	
+	public SignupEntity() {
+		
+	}
+	
 	/**
 	 * @return the userName
 	 */
@@ -16,6 +37,18 @@ public class Signup {
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	/**
+	 * @return the dob
+	 */
+	public Long getDob() {
+		return dob;
+	}
+	/**
+	 * @param dob the dob to set
+	 */
+	public void setDob(Long dob) {
+		this.dob = dob;
 	}
 	/**
 	 * @return the password
@@ -52,5 +85,11 @@ public class Signup {
 	 */
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
+	}
+	
+	@Override
+	public String toString() {
+		return "Signup [teamMateId=" + teamMateId + ", userName=" + userName + ", dob=" + dob + ", password=" + password
+				+ ", email=" + email + ", mobileNo=" + mobileNo + "]";
 	}
 }

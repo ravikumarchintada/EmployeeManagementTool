@@ -38,6 +38,11 @@
 				<td><springForm:errors path="mobileNo" cssClass="error" /></td>
 			</tr>
 			<tr>
+				<td>DOB :</td>
+				<td><springForm:input path="dob" /></td>
+				<td><springForm:errors path="dob" cssClass="error" /></td>
+			</tr>
+			<tr>
 				<td colspan="3"><input type="submit" value="SignUp"></td>
 			</tr>
 		</table>
