@@ -11,9 +11,6 @@
 	SignUp Successfully.
 </h3>
 
-<strong>Your Name : ${signup.userName}</strong><br>
-<strong>Your Email : ${signup.email}</strong><br>
-<strong>Your Mobile No : ${signup.mobileNo}</strong><br>
 
 </body>
 </html>
