@@ -24,15 +24,16 @@ import com.pfmt.spring.service.SignupService;
 
 @Controller
 public class SignupController {
-	
+
 	@Autowired
-    SignupService signupService;
+	SignupService signupService;
 
 	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
 	private Validator validator;
-	public SignupController(){
-		 ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-	     validator = validatorFactory.getValidator();
+
+	public SignupController() {
+		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
+		validator = validatorFactory.getValidator();
 	}
 
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
@@ -43,26 +44,24 @@ public class SignupController {
 	}
 
 	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
-    public String submitForm(@ModelAttribute("signup") SignupEntity signupVO,
-            BindingResult result, SessionStatus status) {
- 
-        Set<ConstraintViolation<SignupEntity>> violations = validator.validate(signupVO);
-         
-        for (ConstraintViolation<SignupEntity> violation : violations) 
-        {
-            String propertyPath = violation.getPropertyPath().toString();
-            String message = violation.getMessage();
-            result.addError(new FieldError("signup", propertyPath, "Invalid "+ propertyPath + "(" + message + ")"));
-        }
- 
-        if (result.hasErrors()) {
-            return "signup";
-        }
-        // Store the employee information in database
-        signupService.addTeammate(signupVO);
-         
-        status.setComplete();
-        return "signupSuccess";
-    }
+	public String submitForm(@ModelAttribute("signup") SignupEntity signupVO, BindingResult result,
+			SessionStatus status, Model model) {
+
+		Set<ConstraintViolation<SignupEntity>> violations = validator.validate(signupVO);
+
+		for (ConstraintViolation<SignupEntity> violation : violations) {
+			String propertyPath = violation.getPropertyPath().toString();
+			String message = violation.getMessage();
+			result.addError(new FieldError("signup", propertyPath, "Invalid " + propertyPath + "(" + message + ")"));
+		}
+
+		if (result.hasErrors()) {
+			return "signup";
+		}
+		// Store the employee information in database
+		signupService.addTeammate(signupVO);
+		status.setComplete();
+		return "signupSuccess";
+	}
 
 }

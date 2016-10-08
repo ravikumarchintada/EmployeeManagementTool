@@ -18,8 +18,11 @@ public class SignupEntity {
 	@NotEmpty
 	private String userName;
 	private Long dob;
+	@NotEmpty
 	private String password;
+	@NotEmpty
 	private String email;
+	@NotEmpty
 	private String mobileNo;
 	
 	public SignupEntity() {
