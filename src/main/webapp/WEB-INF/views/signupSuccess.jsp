@@ -11,6 +11,5 @@
 	SignUp Successfully.
 </h3>
 
-
 </body>
 </html>
