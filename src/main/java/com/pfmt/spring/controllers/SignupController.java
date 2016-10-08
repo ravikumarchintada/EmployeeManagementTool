@@ -45,7 +45,7 @@ public class SignupController {
 
 	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
 	public String submitForm(@ModelAttribute("signup") SignupEntity signupVO, BindingResult result,
-			SessionStatus status, Model model) {
+			SessionStatus status) {
 
 		Set<ConstraintViolation<SignupEntity>> violations = validator.validate(signupVO);
 
