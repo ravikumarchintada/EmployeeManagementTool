@@ -19,32 +19,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.pfmt.spring.model.LoginEntity;
 import com.pfmt.spring.model.SignupEntity;
 import com.pfmt.spring.service.SignupService;
 
 @Controller
-public class SignupController {
+public class PfmtController {
 
 	@Autowired
 	SignupService signupService;
 
-	private static final Logger logger = LoggerFactory.getLogger(SignupController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PfmtController.class);
 	private Validator validator;
 
-	public SignupController() {
+	public PfmtController() {
 		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
 		validator = validatorFactory.getValidator();
 	}
-
+	
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)
-	public String loginPage(Model model) {
+	public String signupPage(Model model) {
 		logger.info("Returning signup.jsp page");
 		model.addAttribute("signup", new SignupEntity());
 		return "signup";
 	}
 
-	@RequestMapping(value = "/signup.do", method = RequestMethod.POST)
-	public String submitForm(@ModelAttribute("signup") SignupEntity signupVO, BindingResult result,
+	
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute("login") LoginEntity loginVO, BindingResult result,
+			SessionStatus status) {
+		System.out.println("Inside login");
+		return "manageFunds";
+	}
+
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signUp(@ModelAttribute("signup") SignupEntity signupVO, BindingResult result,
 			SessionStatus status) {
 
 		Set<ConstraintViolation<SignupEntity>> violations = validator.validate(signupVO);
@@ -58,10 +67,8 @@ public class SignupController {
 		if (result.hasErrors()) {
 			return "signup";
 		}
-		// Store the employee information in database
 		signupService.addTeammate(signupVO);
 		status.setComplete();
-		return "signupSuccess";
+		return "index";
 	}
-
 }

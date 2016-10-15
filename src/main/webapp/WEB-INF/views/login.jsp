@@ -41,18 +41,12 @@ body {
 	<!-- <img src="img/title.png" alt="title"> -->
 	<div class="login-form">
 		<h1>Sign In</h1>
-		<springForm:form method="POST" commandName="signup" action="login">
+		<form method="POST" action="login">
 			<input type="text" name="userName" placeholder="username">
 			<input type="password" name="password" placeholder="password">
-			<input type="text" name="email" placeholder="email">
-			<input type="text" name="mobileNo" placeholder="mobileNo">
-			<input type="text" name="dob" placeholder="dob" id="datepicker">
-			<span>
-				<input type="checkbox" name="checkbox">
-				<label for="checkbox">remember</label>
-			</span>
-			<input type="submit" value="Sign up">
-		</springForm:form>
+			<input type="submit" value="Login">
+		</form>
+		<p><a href="signup">Not a user? Please SignUp</a></p>
 	</div>
 	<div class="footer">
 		<p>

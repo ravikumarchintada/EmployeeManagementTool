@@ -14,7 +14,6 @@ public class SignupServiceImpl implements SignupService{
 
 	@Override
 	public void addTeammate(SignupEntity signupEntity) {
-		System.out.println("Inside addTeammate");
 		signupdao.addTeammember(signupEntity);
 	}
 
