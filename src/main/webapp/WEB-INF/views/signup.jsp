@@ -5,7 +5,8 @@
 <head>
 <meta charset="utf-8">
 <title>Party Fund Management Tool</title>
-<link href="<c:url value="/resources/css/pfmt.css"/>" rel="stylesheet" media="screen">
+<link href="resources/css/pfmt.css" rel="stylesheet" media="screen">
+<link href="resources/css/jquery-ui.css" rel="stylesheet">
 <style>
 body {
 	/* background: url(img/bg.png) center; */
@@ -38,11 +39,11 @@ body {
 	<div class="login-form">
 		<h1>Sign Up</h1>
 		<springForm:form method="POST" commandName="signup" action="signup.do">
-			<input type="text" name="username" placeholder="username">
+			<input type="text" name="userName" placeholder="username">
 			<input type="password" name="password" placeholder="password">
 			<input type="text" name="email" placeholder="email">
 			<input type="text" name="mobileNo" placeholder="mobileNo">
-			<input type="text" name="dob" placeholder="dob">
+			<input type="text" name="dob" placeholder="dob" id="datepicker">
 			<span>
 				<input type="checkbox" name="checkbox">
 				<label for="checkbox">remember</label>
@@ -56,8 +57,7 @@ body {
 		</p>
 	</div>
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script	src="resources/js/jquery-ui.min.js"></script>
 	<script src="resources/js/pfmt.js"></script>
 
 </body>
