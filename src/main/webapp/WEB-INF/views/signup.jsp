@@ -7,6 +7,9 @@
 <title>Party Fund Management Tool</title>
 <link href="resources/css/pfmt.css" rel="stylesheet" media="screen">
 <link href="resources/css/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="resources/js/pfmt.js"></script>
 <style>
 body {
 	/* background: url(img/bg.png) center; */
@@ -56,9 +59,6 @@ body {
 			By <a href="#">Ravikumar Chintada</a>.
 		</p>
 	</div>
-
-	<script	src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/pfmt.js"></script>
 
 </body>
 </html>
