@@ -40,8 +40,8 @@ body {
 <body>
 	<!-- <img src="img/title.png" alt="title"> -->
 	<div class="login-form">
-		<h1>Sign Up</h1>
-		<springForm:form method="POST" commandName="signup" action="signup.do">
+		<h1>Sign In</h1>
+		<springForm:form method="POST" commandName="signup" action="login">
 			<input type="text" name="userName" placeholder="username">
 			<input type="password" name="password" placeholder="password">
 			<input type="text" name="email" placeholder="email">
